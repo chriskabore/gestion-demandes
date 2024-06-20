@@ -44,4 +44,29 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('nom', $role)->exists();
+    }
+
+    public function isAdmin(){
+        return $this->hasRole('admin');
+
+    }
+
+    public function isCitoyen(){
+        return $this->hasRole('citoyen');
+
+    }
+
+    //le citoyen lié à l'utilisateur
+    public function citoyen(){
+        return $this->hasOne(Citoyen::class);
+    }
 }
