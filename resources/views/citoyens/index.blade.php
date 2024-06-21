@@ -69,8 +69,6 @@
                                                     onclick="return confirm('Voulez-vous supprimer ce citoyen?');"><i
                                                         class="bi bi-trash"></i> Supprimer
                                                 </button>
-
-
                                             </form>
                                         </td>
                                     </tr>

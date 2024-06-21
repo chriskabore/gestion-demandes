@@ -9,12 +9,13 @@
         <div class="row justify-content-center mt-3 px-2">
             <div class="col-md-8 offset-2">
                 <div class="card my-3">
-                    <div class="card-header">
+                    <form action="{{ route('services.store') }}" method="POST">
+                        @csrf
+                        <div class="card-header">
                         Nouveau service
-                    </div>
-                    <div class="card-body">
-                        <form action="{{ route('services.store') }}" method="POST">
-                            @csrf
+                        </div>
+                        <div class="card-body">
+
                             <div class="row my-2">
                                 <div class="col">
                                     <div class="form-group">
@@ -50,9 +51,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="card-footer">
+
+                        </div>
+                        <div class="card-footer">
                         <div class="row ">
                             <div class="col-3 offset-9 align-self-end d.flex">
                                 <div class="btn-group ml-auto">
@@ -63,7 +64,8 @@
                             </div>
                         </div>
 
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

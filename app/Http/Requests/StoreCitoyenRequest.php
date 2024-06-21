@@ -11,7 +11,7 @@ class StoreCitoyenRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreCitoyenRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+           'prenoms' => 'required|string|max:255',
+           'date_naissance' => 'required|string|max:255',
+           'lieu_naissance' => 'required|string|max:255',
+           'sexe' => 'required|string|max:255',
+           'telephone' => 'required|string|max:255',
+           'cnib' => 'required|string|max:255',
+           'userId' => 'required|number',
         ];
     }
 }
