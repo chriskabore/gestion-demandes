@@ -7,7 +7,7 @@
 
     <div class="container">
         <div class="row justify-content-center mt-3 px-2">
-            <div class="col-md-8 offset-2"">
+            <div class="col-md-8 offset-2">
                 <div class="card my-3">
                     <div class="card-header">
                         Nouveau citoyen
@@ -33,14 +33,7 @@
                                 </div>
                             </div>
 
-                            <div class="row my-2">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="prenoms">Prenoms</label>
-                                        <input id="prenoms" type="text" class="form-control"/>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="row my-2">
                                 <div class="col">
@@ -109,7 +102,7 @@
                         <div class="row ">
                             <div class="col-3 offset-9 align-self-end d.flex">
                                 <div class="btn-group ml-auto">
-                                    <button class="btn btn-light btn-sm mx-1 " > Annuler</button>
+                                    <a  href="{{route('admin.citoyens')}}" class="btn btn-light btn-sm mx-1 " > Annuler</a>
                                     <button class="btn btn-primary btn-sm mx-1" type="submit"> Enregistrer</button>
                                 </div>
 
