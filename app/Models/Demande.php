@@ -18,7 +18,7 @@ class Demande extends Model
 
      // le service a qui correspond la demande
      public function service(){
-        return $this->belongdTo(Servie::class);
+        return $this->belongsTo(Service::class);
     }
 
     // le citoyen à qui appartient la demande

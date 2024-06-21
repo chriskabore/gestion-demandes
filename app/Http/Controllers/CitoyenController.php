@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Citoyen;
+use App\Models\User;
 use App\Http\Requests\StoreCitoyenRequest;
 use App\Http\Requests\UpdateCitoyenRequest;
 
@@ -13,7 +14,9 @@ class CitoyenController extends Controller
      */
     public function index()
     {
-        //
+        $citoyens = Citoyen::latest()->paginate(5);
+        return view('citoyens.index', compact('citoyens'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -21,7 +24,8 @@ class CitoyenController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('citoyens.create', compact('users'));
     }
 
     /**

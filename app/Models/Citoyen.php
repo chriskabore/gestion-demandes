@@ -14,6 +14,7 @@ class Citoyen extends Model
         'prenoms',
         'date_naissance',
         'lieu_naissance',
+        'sexe',
         'telephone',
         'cnib',
         'user_id',

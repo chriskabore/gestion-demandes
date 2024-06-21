@@ -11,6 +11,7 @@
                 <div class="card">
                     <div class="card-body">
                       <h6>Welcome to your dashboard.</h6>
+                      <h5>{{Auth::user()->name }}</h5>
                     </div>
                 </div>
             </div>
