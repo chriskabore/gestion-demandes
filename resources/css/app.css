@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*  table pour demandes et agents*/
+/*  styles pour les tables pour demandes */
 .mytab{
     border: 1px solid #ccc;
     padding: 5px;

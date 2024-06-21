@@ -34,7 +34,7 @@ class DemandeController extends Controller
         $citoyen = $user->citoyen;
         $demandes = $citoyen->demandes()->get();
 
-        return view('dashboard', ['demandes' => $demandes]);
+        return view('citoyen.demandes', compact('demandes'));
      }
 
     /**
