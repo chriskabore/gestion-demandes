@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Http\Requests\StoreDemandeRequest;
 use App\Http\Requests\UpdateDemandeRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class DemandeController extends Controller
 {
@@ -25,14 +26,15 @@ class DemandeController extends Controller
      * obtenir les demandes de l'utilisateur courant
      */
 
-     public function index2(){
+     public function mesDemandes(){
          // obtenir l'utilisateur courant
         $user = Auth::user();
 
         // Get orders associated with this user
-        $demandes = $user->demandes()->get();
+        $citoyen = $user->citoyen;
+        $demandes = $citoyen->demandes()->get();
 
-        return view('citoyen.dashboard', ['demandes' => $demandes]);
+        return view('dashboard', ['demandes' => $demandes]);
      }
 
     /**
@@ -48,7 +50,7 @@ class DemandeController extends Controller
      */
     public function store(StoreDemandeRequest $request)
     {
-       
+
         //$dateNow = Carbon::now()->toDateTimeString();
         $request->validate([
             'citoyen_id' => 'required|exists:citoyenss,id',

@@ -24,12 +24,18 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::post('/mes-demandes', [DemandeController::class, 'mesDemandes'])->name('demandes.mes-demandes');
-    Route::post('/ma-demande/{demandeId}', [DemandeController::class, 'maDemande'])->name('demandes.ma-demande');
+    Route::get('/mes-demandes', [DemandeController::class, 'mesDemandes'])->name('citoyen.mes.demandes');
+    Route::get('/ma-demande/{demandeId}', [DemandeController::class, 'maDemande'])->name('citoyen.ma.demande');
     Route::post('/demandes', [DemandeController::class, 'store'])->name('demandes.store');
-    Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+    Route::get('/citoyen/services', [ServiceController::class, 'index'])->name('citoyen.services');
     Route::get('/services/{serviceId}', [ServiceController::class, 'show'])->name('services.show');
     Route::post('/demandes/{demandeId}/pieces/{pieceId}', [DemandeController::class, 'attachPiece'])->name('demande.attach.piece');
+    Route::delete('/services/{serviceId}', [ServiceController::class, 'destroy'])->name('services.destroy');
+    Route::put('/services/{serviceId}', [ServiceController::class, 'edit'])->name('services.edit');
+
+    // demandes
+    Route::get('/demandes/create', [DemandeController::class, 'create'])->name('demandes.create');
+
 
 });
 
