@@ -20,7 +20,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="code">Code</label>
-                                        <input id="code" type="text" class="form-control"/>
+                                        <input id="code"name="code" type="text" class="form-control"/>
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="intitulé">Intiulé</label>
-                                        <input id="intitulé" type="text" class="form-control"/>
+                                        <input id="intitulé" name="intitulé" type="text" class="form-control"/>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="frais_dossier">Frais de dossier</label>
-                                        <input id="frais_dossier" type="text" class="form-control"/>
+                                        <input id="frais_dossier" name="frais_dossier" type="text" class="form-control"/>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="pieces">Pièces</label>
+                                        <select  id="pieces" name="pieces_ids[]" multiple class="form-control">
+                                            <option disabled value="">Selectionner les pièces requises</option>
+                                            @foreach ($pieces as $piece )
+                                            <option value="{{$piece->id}}">{{$piece->intitulé}}</option>
+                                            @endforeach
 
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                         <div class="row ">

@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('demandes', DemandeController::class );
 
      // Routes pieces
-     //Route::resource('demandes', PieceController::class );
+     Route::resource('pieces', PieceController::class );
 
 });
 
@@ -49,7 +49,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/services', [ServiceController::class, 'index'])->name('admin.services');
     Route::get('/admin/citoyens', [CitoyenController::class, 'index'])->name('admin.citoyens');
     Route::get('/admin/demandes', [DemandeController::class, 'index'])->name('admin.demandes');
+    Route::get('/admin/pieces', [PieceController::class, 'index'])->name('admin.pieces');
     Route::get('/services', [ServiceController::class, 'create'])->name('services.create');
+
 });
 
 

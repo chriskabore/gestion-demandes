@@ -11,6 +11,7 @@ class Piece extends Model
 
     protected $fillable = [
         'intitulé',
+        'description',
     ];
 
     public function demandes() {
