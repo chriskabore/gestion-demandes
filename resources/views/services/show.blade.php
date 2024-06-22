@@ -7,7 +7,7 @@
 
     <div class="container">
         <div class="row justify-content-center mt-3 px-2">
-            <div class="col-md-8 offset-2">
+            <div class="col-md-12">
                 <div class="card my-3">
                         <div class="card-header">
                         Details Service # {{$service->code}}
@@ -51,12 +51,8 @@
                             </div>
 
                             <div class="row border-top border border-light mt-3"></div>
-                            <div class="row">
-                                <div class="clearfix">
-                                    <a href="{{route('services.edit', $service->id)}}" class="btn btn-success btn-sm my-3"><i class="bi bi-plus-circle mx-1"></i> Ajouter pièce</a>
-                                </div>
-                            </div>
-                            <div class="row">
+
+                            <div class="row mt-3">
                                 <div class="col">
                                     <table class="table table-bordered mt-5 mytab">
                                         <thead>
@@ -75,12 +71,12 @@
                                                     <td>{{ $piece->intitulé }}</td>
                                                     <td>{{ $piece->description }}</td>
                                                     <td>
-                                                        <form action="{{ route('services.detach.piece', $piece->id) }}" method="post">
+                                                        <form action="{{ route('services.detach.piece', ['service'=>$service->id, 'piece'=>$piece->id]) }}" method="post">
                                                             @csrf
                                                             @method('DELETE')
 
                                                             <a href="{{ route('pieces.show', $piece->id) }}"
-                                                                class="btn btn-warning btn-sm mx-2"><i class="bi bi-eye"></i> Voir</a>
+                                                                class="btn btn-warning btn-sm mx-1"><i class="bi bi-eye"></i> Voir</a>
 
 
 

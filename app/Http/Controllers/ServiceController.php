@@ -36,25 +36,16 @@ class ServiceController extends Controller
     {
 
 
-       /*$request->validate([
-            'code' => 'required|string',
-            'intitulé' => 'required|string',
-            'frais_dossier' => 'required|integer',
-            'pieces_ids[]' => 'required|array',
-        ]);*/
-
-
-        $service = new Service([
+       $service = Service::create([
             'code' => $request->get('code'),
             'intitulé' => $request->get('intitulé'),
             'frais_dossier' => $request->get('frais_dossier'),
             'description' => $request->get('description'),
         ]);
-        $service->save();
 
 
-        $pieces_ids = $request->get('pieces_ids[]');
-        //$pieces = Piece::find($pieces_ids);
+        $pieces_ids = $request->get('pieces_ids');
+
         $service->pieces()->attach($pieces_ids);
         return redirect()->route('admin.services')->with('success', 'Service created successfully.');
     }
@@ -64,10 +55,9 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        // dd($service);
-        $serviceWithPieces = Service::with('pieces')->find($service->id);
-        //dd($serviceWithPieces);
-       // return view('services.show', compact('service'));
+
+        $pieces = $service->pieces ;
+        return view('services.show', compact('service', 'pieces'));
     }
 
     /**
@@ -98,8 +88,13 @@ class ServiceController extends Controller
 
     }
 
-    public function detachPiece(){
-
+    public function detachPiece(Request $request,  $service,  $piece){
+        $piece = Piece::findOrFail($piece);
+        $service = Service::findOrFail($service);
+        $service->pieces()->detach($piece->id);
+        $pieces = $service->pieces ;
+        return redirect()->back()->with('success', 'pièce detached successfully.');
+        //view('services.show', compact('service', 'pieces'));
     }
 
     public function createAttachPiece(){

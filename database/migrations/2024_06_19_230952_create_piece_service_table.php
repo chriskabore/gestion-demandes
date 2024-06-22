@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('service_id');
             $table->timestamps();
 
-            $table->foreign('piece_id')->references('id')->on('demandes')->onDelete('cascade');
-            $table->foreign('service_id')->references('id')->on('pieces')->onDelete('cascade');
+            $table->foreign('piece_id')->references('id')->on('pieces')->onDelete('cascade');;
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');;
         });
     }
 

@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mes-demandes', [DemandeController::class, 'mesDemandes'])->name('citoyen.mes.demandes');
     Route::get('/ma-demande/{demandeId}', [DemandeController::class, 'maDemande'])->name('citoyen.ma.demande');
     Route::get('/citoyen/services', [ServiceController::class, 'index'])->name('citoyen.services');
-
+    Route::delete('/services/{service}/detach-piece/{piece}', [ServiceController::class, 'detachPiece'])->name('services.detach.piece');
 
     // Routes services
     Route::resource('services', ServiceController::class );
