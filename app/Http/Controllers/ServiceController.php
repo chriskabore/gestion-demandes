@@ -100,4 +100,11 @@ class ServiceController extends Controller
     public function createAttachPiece(){
         return view('services.attach.create');
     }
+
+    public function getServicePieces($service_id)
+    {
+        $service = Service::with('pieces')->findOrFail($service_id);
+        //dd('hello!!!');
+        return response()->json($service->pieces);
+    }
 }

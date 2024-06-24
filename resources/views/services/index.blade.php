@@ -56,7 +56,7 @@
 
                                                     @if(Auth::user()->isCitoyen())
 
-                                                    <a href="{{ route('services.create') }}" class="btn btn-primary btn-sm my-3">
+                                                    <a href="{{ route('demandes.create') }}" class="btn btn-primary btn-sm my-3">
                                                         <i class="bi bi-clipboard2 mx-1"></i>
                                                         Demander service
                                                     </a>

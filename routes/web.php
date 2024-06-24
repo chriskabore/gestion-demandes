@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
     // Routes services
     Route::resource('services', ServiceController::class );
+    Route::get('/services/{service}/pieces', [ServiceController::class, 'getServicePieces']);
 
     // Routes citoyens
     Route::resource('citoyens', CitoyenController::class );

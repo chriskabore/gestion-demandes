@@ -43,7 +43,8 @@ class DemandeController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+        return view('citoyen.demandes.create', compact('services'));
     }
 
     /**
